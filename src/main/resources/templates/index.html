@@ -1,10 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+
+<table>
+    <thead>
+    <tr>
+        <td>Ref</td>
+        <td>Name</td>
+        <td>Price</td>
+    </tr>
+
+    </thead>
+
+    <tbody>
+    <tr th:each="produit:${listProduits}">
+        <td > <a th:href="@{detailsProduct(id=${produit.getId()})}"
+                 th:text="${produit.getId()}"></a></td>
+
+
+        <td th:text="${produit.getName()}"></td>
+
+
+        <td th:text="${produit.getPrice()}"></td>
+    </tr>
+
+    </tbody>
+
+</table>
+
+
 </body>
 </html>
